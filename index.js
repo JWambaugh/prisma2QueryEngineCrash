@@ -2,14 +2,23 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-async function main() {
-  const out = await prisma.annotations
-    .findOne({
-      where: { id: 1 },
-    })
-    .author();
-
-  console.log(JSON.stringify(out));
+async function getAnnotationAuthor(annotationId) {
+  try {
+    const out = await prisma.annotations
+      .findOne({
+        where: { id: annotationId },
+      })
+      .author();
+    console.log(JSON.stringify(out));
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-main();
+async function test() {
+  await getAnnotationAuthor(2); // succeeds
+  await getAnnotationAuthor(1); // crashes engine
+  await getAnnotationAuthor(2); //will fail because engine crashed
+}
+
+test();
