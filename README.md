@@ -13,7 +13,7 @@ This reproduces the query engine crash described in https://github.com/prisma/pr
 
 
 # The Test
-The test should output `{"id":1,"name":"joe smith"}` twice, with an error thrown between them, but because the query engine crashes, the second query also fails.
+The test should output `{"id":1,"name":"joe smith"}` twice, with an error thrown between them, but because the query engine crashes, the second query also fails with another `Invalid `prisma.select.author()` invocation` error.
 ## Output of test
 ```
 {"id":1,"name":"joe smith"}
