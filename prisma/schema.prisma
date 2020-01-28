@@ -1,0 +1,20 @@
+datasource db {
+  provider = "mysql"
+  url      = "mysql://prismaTest:prismaTest@localhost:3306/prismaTest"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Annotation {
+  id     Int    @id
+  author Author @relation(references: [id])
+  text   String @default("")
+}
+
+model Author {
+  id   Int    @id
+  name String @default("")
+}

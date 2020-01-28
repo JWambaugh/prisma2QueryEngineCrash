@@ -1,0 +1,15 @@
+{
+  "name": "prismatest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^2.0.0-preview020.3",
+    "prisma2": "^2.0.0-preview020.3"
+  }
+}
